@@ -268,7 +268,7 @@ async def n64_sync_task(ctx: OoTContext):
         else:
             try:
                 logger.debug("Attempting to connect to N64")
-                ctx.n64_streams = await asyncio.wait_for(asyncio.open_connection("localhost", 28921), timeout=10)
+                ctx.n64_streams = await asyncio.wait_for(asyncio.open_connection("127.0.0.1", 28921), timeout=10)
                 ctx.n64_status = CONNECTION_TENTATIVE_STATUS
             except TimeoutError:
                 logger.debug("Connection Timed Out, Trying Again")
